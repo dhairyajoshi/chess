@@ -1,0 +1,10 @@
+^D:\PROGRAMMING\ANDROID\CHESS\BUILD\WINDOWS\CMAKEFILES\677ECE3EEA37A003883078635F87DABB\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Programming/Android/chess/windows -BD:/Programming/Android/chess/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Programming/Android/chess/build/windows/chess.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

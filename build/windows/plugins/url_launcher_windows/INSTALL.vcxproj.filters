@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Programming\Android\chess\build\windows\CMakeFiles\2a09ab85a1f7126f4b25e66d498c731c\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{8F1D4670-7088-3B67-A78F-0C49E6205CFA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
