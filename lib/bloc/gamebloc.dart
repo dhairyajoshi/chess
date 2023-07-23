@@ -417,6 +417,10 @@ class GameBloc extends Bloc<AppEvent, AppState> {
             }
           }
           cur = 1 - cur;
+          if (pieces[i][j].toString().contains('pawn') && i == 0) {
+            pieces[i][j] =
+                pieces[i][j].toString().contains('black') ? blkqueen : whtqueen;
+          }
           flipboard();
           emit(GameLoadedState(grid, clr, pieces, cur, rows, cols));
         }
