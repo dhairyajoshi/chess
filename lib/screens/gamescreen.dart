@@ -117,7 +117,7 @@ class GridRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height / 12;
-    double w = MediaQuery.of(context).size.width / 9;
+    double w = MediaQuery.of(context).size.width / 8;
     return Container(
       // width: w,
       height: h,
