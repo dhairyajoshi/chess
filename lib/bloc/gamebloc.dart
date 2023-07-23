@@ -242,13 +242,16 @@ class GameBloc extends Bloc<AppEvent, AppState> {
             }
             if (corcheck(i - 1, j - 1) &&
                 player[i - 1][j - 1] != player[i][j] &&
-                player[i - 1][j - 1] != -1) clr[i - 1][j - 1] = Colors.red;
-            available[i - 1][j - 1] = 1;
+                player[i - 1][j - 1] != -1) {
+              clr[i - 1][j - 1] = Colors.red;
+              available[i - 1][j - 1] = 1;
+            }
             if (corcheck(i - 1, j + 1) &&
                 player[i - 1][j + 1] != player[i][j] &&
-                player[i - 1][j + 1] != -1) clr[i - 1][j + 1] = Colors.red;
-            available[i - 1][j + 1] = 1;
-            emit(GameLoadedState(grid, clr, pieces, cur, rows, cols));
+                player[i - 1][j + 1] != -1) {
+              clr[i - 1][j + 1] = Colors.red;
+              available[i - 1][j + 1] = 1;
+            }
           } else if (piece == blkrook || piece == whtrook) {
             var dirs = dirmap['rook'];
 
@@ -287,7 +290,6 @@ class GameBloc extends Bloc<AppEvent, AppState> {
                 }
               }
             }
-            emit(GameLoadedState(grid, clr, pieces, cur, rows, cols));
           } else if (piece == blkhorse || piece == whthorse) {
             var dirs = dirmap['horse'];
 
@@ -300,7 +302,6 @@ class GameBloc extends Bloc<AppEvent, AppState> {
                 available[ni][nj] = 1;
               }
             }
-            emit(GameLoadedState(grid, clr, pieces, cur, rows, cols));
           } else if (piece == blkbishop || piece == whtbishop) {
             var dirs = dirmap['bishop'];
 
@@ -339,7 +340,6 @@ class GameBloc extends Bloc<AppEvent, AppState> {
                 }
               }
             }
-            emit(GameLoadedState(grid, clr, pieces, cur, rows, cols));
           } else if (piece == blkking || piece == whtking) {
             var dirs = dirmap['king'];
             for (var dir in dirs!) {
@@ -354,8 +354,6 @@ class GameBloc extends Bloc<AppEvent, AppState> {
                 available[ni][nj];
               }
             }
-
-            emit(GameLoadedState(grid, clr, pieces, cur, rows, cols));
           } else if (piece == blkqueen || piece == whtqueen) {
             var dirs = dirmap['queen'];
 
@@ -394,6 +392,7 @@ class GameBloc extends Bloc<AppEvent, AppState> {
                 }
               }
             }
+
             emit(GameLoadedState(grid, clr, pieces, cur, rows, cols));
           }
         } else if (available[i][j] == 1) {
