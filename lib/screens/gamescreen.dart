@@ -45,93 +45,11 @@ class GameScreen extends StatelessWidget {
                                   fontSize: 30, fontWeight: FontWeight.bold),
                             ),
                           ),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.center,
-                          //   children: [
-                          //     OutlinedButton(
-                          //         style: OutlinedButton.styleFrom(
-                          //           backgroundColor: state.start
-                          //               ? Colors.blue
-                          //               : Colors.transparent,
-                          //         ),
-                          //         onPressed: state.play
-                          //             ? null
-                          //             : () {
-                          //                 BlocProvider.of<GameBloc>(context)
-                          //                     .add(SelectOptionEvent(0));
-                          //               },
-                          //         child: Text(
-                          //           'Start',
-                          //           style: TextStyle(
-                          //               color: state.start
-                          //                   ? Colors.white
-                          //                   : Colors.blue),
-                          //         )),
-                          //     SizedBox(
-                          //       width: 10,
-                          //     ),
-                          //     OutlinedButton(
-                          //         style: OutlinedButton.styleFrom(
-                          //           backgroundColor: state.end
-                          //               ? Colors.blue
-                          //               : Colors.transparent,
-                          //         ),
-                          //         onPressed: state.play
-                          //             ? null
-                          //             : () {
-                          //                 BlocProvider.of<GameBloc>(context)
-                          //                     .add(SelectOptionEvent(1));
-                          //               },
-                          //         child: Text(
-                          //           'End',
-                          //           style: TextStyle(
-                          //               color: state.end
-                          //                   ? Colors.white
-                          //                   : Colors.blue),
-                          //         )),
-                          //     SizedBox(
-                          //       width: 10,
-                          //     ),
-                          //     OutlinedButton(
-                          //         style: OutlinedButton.styleFrom(
-                          //           backgroundColor: state.block
-                          //               ? Colors.blue
-                          //               : Colors.transparent,
-                          //         ),
-                          //         onPressed: state.play
-                          //             ? null
-                          //             : () {
-                          //                 BlocProvider.of<GameBloc>(context)
-                          //                     .add(SelectOptionEvent(2));
-                          //               },
-                          //         child: Text(
-                          //           'Block',
-                          //           style: TextStyle(
-                          //               color: state.block
-                          //                   ? Colors.white
-                          //                   : Colors.blue),
-                          //         )),
-                          //     SizedBox(
-                          //       width: 10,
-                          //     ),
-                          //     ElevatedButton(
-                          //         onPressed: state.play
-                          //             ? null
-                          //             : (() =>
-                          //                 BlocProvider.of<GameBloc>(context)
-                          //                     .add(RandomizeEvent())),
-                          //         child: Text('Randomize')),
-                          //     SizedBox(
-                          //       width: 10,
-                          //     ),
-                          //     ElevatedButton(
-                          //         onPressed: (() =>
-                          //             BlocProvider.of<GameBloc>(context)
-                          //                 .add(TogglePlayEvent())),
-                          //         child:
-                          //             state.play ? Text('Stop') : Text('Play')),
-                          //   ],
-                          // ),
+                          state.cur == 0
+                              ? Text('White to play',style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold))
+                              : Text('Black to play',style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold))
                         ],
                       ),
                     ),
@@ -214,7 +132,10 @@ class GridRow extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: ((context, index) {
             return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                BlocProvider.of<GameBloc>(ctx)
+                    .add(CellClickEvent(rowno, index));
+              },
               child: Container(
                 width: MediaQuery.of(context).size.width < 493 ? w : h,
                 decoration: BoxDecoration(
