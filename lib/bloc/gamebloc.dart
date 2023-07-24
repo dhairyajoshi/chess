@@ -214,7 +214,6 @@ class GameBloc extends Bloc<AppEvent, AppState> {
     on<CellClickEvent>(
       (event, emit) {
         int i = event.i, j = event.j;
-        print('hell');
 
         var piece = pieces[i][j];
         if (player[i][j] == cur) {
@@ -419,6 +418,7 @@ class GameBloc extends Bloc<AppEvent, AppState> {
           }
           cur = 1 - cur;
           if (pieces[i][j].toString().contains('pawn') && i == 0) {
+            print('hi');
             pieces[i][j] =
                 pieces[i][j].toString().contains('black') ? blkqueen : whtqueen;
           }
@@ -439,7 +439,7 @@ class GameBloc extends Bloc<AppEvent, AppState> {
     on<ResetGameEvent>(
       (event, emit) {
         play = false;
-        cur=0;
+        cur = 0;
         add(LoadGameEvent());
       },
     );
