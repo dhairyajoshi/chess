@@ -417,6 +417,7 @@ class GameBloc extends Bloc<AppEvent, AppState> {
             }
           }
           cur = 1 - cur;
+          print(pieces[i][j].toString()); 
           if (pieces[i][j].toString().contains('pawn') && i == 0) {
             print('hi');
             pieces[i][j] =
