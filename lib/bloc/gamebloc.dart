@@ -417,9 +417,7 @@ class GameBloc extends Bloc<AppEvent, AppState> {
             }
           }
           cur = 1 - cur;
-          print(pieces[i][j]!.image.toString()); 
           if (pieces[i][j]!.image.toString().contains('pawn') && i == 0) { 
-            print('hi');
             pieces[i][j] = 
                 pieces[i][j]!.image.toString().contains('black') ? blkqueen : whtqueen;
           }
